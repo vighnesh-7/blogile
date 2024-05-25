@@ -1,0 +1,36 @@
+###user creation
+POST  http://localhost:4000/user-api/user
+Content-Type: application/json
+
+{
+    "userType":"user",
+    "username":"vighnesh",
+    "password":"vighnesh",
+    "email":"vighnesh@mail.com"
+}
+
+#### user login
+post http://localhost:4000/user-api/login
+Content-Type: application/json
+
+{
+    "userType":"user",
+    "username":"vighnesh",
+    "password":"vighnesh"
+}
+
+
+###reading articles of all users
+GET http://localhost:4000/user-api/articles
+
+### write comment
+post http://localhost:4000/user-api/comment/1709384521
+Content-Type: application/json
+
+{
+
+    "username":"captain america",
+    "comment":"Amazing blog ,man"
+
+}
+

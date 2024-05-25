@@ -1,0 +1,6 @@
+.authorActive .active{
+    color: rgb(244, 242, 242);
+    background-color: rgb(38, 36, 36);
+    border-radius: 1rem;
+    padding: 5px 15px;
+}

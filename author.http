@@ -1,0 +1,95 @@
+###create author
+post http://localhost:4000/author-api/user
+Content-Type: application/json
+
+{
+    "userType":"author",
+    "username":"tonyStark",
+    "password":"tonyStark",
+    "email":"tonystark@mail.com"
+}
+
+
+
+###login author
+post http://localhost:4000/author-api/login
+Content-Type: application/json
+{
+    "userType":"author",
+    "username":"tonyStark",
+    "password":"tonyStark"   
+}
+
+
+
+
+###write article
+post http://localhost:4000/author-api/article
+Content-Type: application/json
+
+{
+    "username":"tonyStark",
+    "title":"Blogify",
+    "body":"Welcome to Blogify - the ultimate solution for transforming your videos into written content! Our innovative technology makes it easy and fast to turn your video content into high-quality blog posts, complete with engaging text, images, and SEO optimization. With Blogify, you can reach a wider audience, improve your online presence. Try it today and see the results for yourself!",
+    "published":"{{$datetime iso8601}}",
+    "updated":"{{$datetime iso8601}}" 
+}
+
+
+
+### add new article by author
+post http://localhost:4000/author-api/article
+Content-Type: application/json
+
+{
+    "articleId":"{{$timestamp}}",
+    "title":"Marvel Cinematic Universe",
+    "category":"Comics",
+    "content":"marvel Cinematic Universe (MCU) is an American media franchise and shared universe centered on a series of superhero films produced by Marvel Studios. The films are based on characters that appear in American comic books published by Marvel Comics. The franchise also includes television series, short films, digital series, and literature. The shared universe, much like the original Marvel Universe in comic books, was established by crossing over common plot elements, settings, cast, and characters.",
+    "dateOfCreation":"{{$datetime iso8601}}",
+    "dateOfModification":"{{$datetime iso8601}}",
+    "username":"tonyStark",
+    "comments":[],
+    "status":true
+}
+
+
+### update article by author
+put http://localhost:4000/author-api/article
+Content-Type: application/json
+
+{
+"articleId":"1709662329",
+"title":"Marvel Cinematic Universe",
+"category":"Comics",
+"content":"The Marvel Cinematic Universe (MCU) is an American media franchise and shared universe centered on a series of superhero films produced by Marvel Studios. The films are based on characters that appear in American comic books published by Marvel Comics. The franchise also includes television series, short films, digital series, and literature. The shared universe, much like the original Marvel Universe in comic books, was established by crossing over common plot elements, settings, cast, and characters",
+"dateOfCreation":"2024-03-01T19:56:22.487Z",
+"dateOfModification":"{{$datetime iso8601}}",
+"username":"tonyStark",
+"comments": [ ],
+"status":true
+
+}
+
+
+### soft delete an article by article id
+put http://localhost:4000/author-api/article/1709328182
+Content-Type: application/json
+
+{
+"articleId":"1709328182",
+"title":"Marvel Cinematic Universe",
+"category":"Comics",
+"content":"The Marvel Cinematic Universe (MCU) is an American media franchise and shared universe centered on a series of superhero films produced by Marvel Studios. The films are based on characters that appear in American comic books published by Marvel Comics. The franchise also includes television series, short films, digital series, and literature. The shared universe, much like the original Marvel Universe in comic books, was established by crossing over common plot elements, settings, cast, and characters.",
+"dateOfCreation":"2024-03-01T19:56:22.487Z",
+"dateOfModification":"{{$datetime iso8601}}",
+"username":"tonyStark",
+"comments": [ ],
+"status":true
+
+}
+
+
+
+###get article of same author by username
+get http://localhost:4000/author-api/articles/tonyStark
